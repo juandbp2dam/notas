@@ -15,8 +15,21 @@ $filePath = 'notas.json';
 function getAllNotas($filePath) {
     if (file_exists($filePath)) {
         $data = file_get_contents($filePath);
-        return json_decode($data, true);
-    }
+        
+        // Se decodifica el JSON en un array asociativo
+        $retValue = json_decode($data, true);
+
+        // Por si acaso, se verifica que retValue es un array y que no está vacío
+        if (is_array($retValue) && !empty($retValue)) {
+            // Ahora se ordena por id
+            usort($retValue, function ($a, $b) {
+                return $a['id'] <=> $b['id']; // Operador de comparación espaciada (<=>)
+            });
+        }
+        // Se devuelve el array ordenado
+        return $retValue;
+    }    
+    // Si el archivo no existe o está vacío, se devuelve un array vacío
     return [];
 }
 

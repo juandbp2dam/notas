@@ -1,31 +1,31 @@
-import logo from "./logo.svg";
 import "./App.css";
-import {
-  addNota,
-  deleteNota,
-  getAllNotas,
-  getNotaById,
-  updateNota,
-} from "./notasServer";
+import { getAllNotas } from "./notasServer";
 import { useEffect } from "react";
 import ListadoNotas from "./components/ListadoNotas";
-import { AppContext } from "./AppContext";
+import { useState } from "react";
 function App() {
-  /*   useEffect(() => {
-    const obtenerNota = async (id) => {
-      const notas = await getNotaById(id);
-      console.log(notas);
-    };
-    obtenerNota(2);
-  }, []); */
+  const [notas, setNotas] = useState([]);
 
+  const loadNotas = async () => {
+    try {
+      const notasServer = await getAllNotas();
+      setNotas(notasServer);
+    } catch (error) {
+      console.error("Error al cargar las notas:", error);
+    }
+  };
+
+  useEffect(() => {
+    loadNotas();
+  }, []);
+
+  const cambioNotas = () => {
+    loadNotas(); // Volver a cargar las notas al modificar una
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <AppContext.Provider value={notas}>
-          <ListadoNotas />
-        </AppContext.Provider>
-      </header>
+    <div>
+      <h1>GESTIÓN DE NOTAS</h1>
+      <ListadoNotas notas={notas} onNotasChange={cambioNotas} />
     </div>
   );
 }

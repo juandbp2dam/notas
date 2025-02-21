@@ -1,33 +1,24 @@
-import { useContext, useEffect } from "react";
-import { AppContext } from "../AppContext";
-import { getAllNotas } from "../notasServer";
-const ListadoNotas = () => {
-  const { notas, setNotas } = useContext(AppContext);
-
-  useEffect(() => {
-    const cargaNotas = () => {
-      async () => {
-        const notas = await getAllNotas();
-        setNotas(notas);
-        console.log(notas);
-      };
-    };
-    cargaNotas();
-  }, [setNotas]);
+import "./ListadoNotas.css";
+const ListadoNotas = ({ notas }) => {
   return (
-    <>
-      <ul className="space-y-2">
-        {notas.length > 0 ? (
-          notas.map((nota) => (
-            <li key={nota.id} className="p-2 border rounded-xl shadow-sm">
-              {nota.texto} - {nota.importancia}
-            </li>
-          ))
-        ) : (
-          <p>No hay notas disponibles.</p>
-        )}
-      </ul>
-    </>
+    <table className="tabla">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Texto</th>
+          <th>Importancia</th>
+        </tr>
+      </thead>
+      <tbody>
+        {notas?.map((nota) => (
+          <tr key={nota.id} className="fila">
+            <td className="celda-id">{nota.id}</td>
+            <td className="celda-texto">{nota.texto}</td>
+            <td className="celda-importancia">{nota.importancia}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 };
 export default ListadoNotas;

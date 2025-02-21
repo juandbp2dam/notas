@@ -4,6 +4,11 @@
         "texto": "Nota uno",
         "importancia": 3
     },
+	{
+        "id": 7,
+        "texto": "Esta es una nota actualizada desde React",
+        "importancia": 3
+    },
     {
         "id": 2,
         "texto": "Nota dos",
@@ -19,11 +24,7 @@
         "texto": "Esta es una nota de prueba enviada desde el cliente",
         "importancia": 3
     },
-    {
-        "id": 7,
-        "texto": "Esta es una nota actualizada desde React",
-        "importancia": 3
-    },
+   
     {
         "id": 8,
         "texto": "Esta es una nota actualizada desde React",
