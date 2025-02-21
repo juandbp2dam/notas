@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "texto": "Nota uno",
+        "importancia": 3
+    },
+    {
+        "id": 2,
+        "texto": "Nota dos",
+        "importancia": 5
+    },
+    {
+        "id": 5,
+        "texto": "Esta es una nota de prueba enviada desde el cliente",
+        "importancia": 3
+    },
+    {
+        "id": 6,
+        "texto": "Esta es una nota de prueba enviada desde el cliente",
+        "importancia": 3
+    },
+    {
+        "id": 7,
+        "texto": "Esta es una nota actualizada desde React",
+        "importancia": 3
+    },
+    {
+        "id": 8,
+        "texto": "Esta es una nota actualizada desde React",
+        "importancia": 3
+    }
+]
