@@ -12,16 +12,16 @@
   font-weight: bold;
   padding: 10px;
   text-align: center;
-  border: 1px solid #ddd; /* Bordes internos */
+  border: 1px solid #ddd;
 }
 
 .tabla fila {
-  border-bottom: 1px solid #ddd; /* Separador entre filas */
+  border-bottom: 1px solid #ddd;
 }
 
 .tabla td {
-  padding: 10px; /* Espaciado interior */
-  border: 1px solid #ddd; /* Bordes internos */
+  padding: 10px;
+  border: 1px solid #ddd;
 }
 
 .celda-id {

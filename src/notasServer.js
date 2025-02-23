@@ -66,15 +66,15 @@ export const updateNota = async (notaActualizada) => {
 };
 
 // Borrado de nota existente
-// Función para eliminar una nota
 export const deleteNota = async (idNota) => {
   const initObject = {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
     mode: "cors",
-    body: JSON.stringify(idNota),
+    body: JSON.stringify({ id: idNota }),
   };
   const mensajeError = "Error al eliminar la nota";
+
   try {
     const respuesta = await fetch(url, initObject);
     if (!respuesta.ok) throw new Error(mensajeError);
